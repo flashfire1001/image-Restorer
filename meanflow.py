@@ -3,49 +3,17 @@ import torch.nn.functional as F
 from einops import rearrange
 from functools import partial
 import numpy as np
-
-
-class Normalizer:
-    # minmax for raw image, mean_std for vae latent
-    def __init__(self, mode='minmax', mean=None, std=None):
-        assert mode in ['minmax', 'mean_std'], "mode must be 'minmax' or 'mean_std'"
-        self.mode = mode
-
-        if mode == 'mean_std':
-            if mean is None or std is None:
-                raise ValueError("mean and std must be provided for 'mean_std' mode")
-            self.mean = torch.tensor(mean).view(-1, 1, 1)
-            self.std = torch.tensor(std).view(-1, 1, 1)
-
-    @classmethod
-    def from_list(cls, config):
-        """
-        config: [mode, mean, std]
-        """
-        mode, mean, std = config
-        return cls(mode, mean, std)
-
-    def norm(self, x):
-        if self.mode == 'minmax':
-            return x * 2 - 1
-        elif self.mode == 'mean_std':
-            return (x - self.mean.to(x.device)) / self.std.to(x.device)
-
-    def unnorm(self, x):
-        if self.mode == 'minmax':
-            x = x.clip(-1, 1)
-            return (x + 1) * 0.5
-        elif self.mode == 'mean_std':
-            return x * self.std.to(x.device) + self.mean.to(x.device)
-
+from utils import Normalizer
+from noise import NoiseGenerator
+from datasets import get_mnist_dataloader
 
 def stopgrad(x):
     return x.detach()
 
-
 def adaptive_l2_loss(error, gamma=0.5, c=1e-3):
     """
     Adaptive L2 loss: sg(w) * ||Δ||_2^2, where w = 1 / (||Δ||^2 + c)^p, p = 1 - γ
+    train more on easier samples, while penalize the hard ones(outliers or too noisy)
     Args:
         error: Tensor of shape (B, C, W, H)
         gamma: Power used in original ||Δ||^{2γ} loss
@@ -56,8 +24,9 @@ def adaptive_l2_loss(error, gamma=0.5, c=1e-3):
     delta_sq = torch.mean(error ** 2, dim=(1, 2, 3), keepdim=False)
     p = 1.0 - gamma
     w = 1.0 / (delta_sq + c).pow(p)
-    loss = delta_sq  # ||Δ||^2
-    return (stopgrad(w) * loss).mean()
+    loss = delta_sq  # square of the error
+    return (stopgrad(w) * loss).mean() # more flexible than standard mse.
+    
 
 
 class MeanFlow:
@@ -66,11 +35,13 @@ class MeanFlow:
         channels=1,
         image_size=32,
         num_classes=10,
+        #by default minmax(with out latent space.)
         normalizer=['minmax', None, None],
-        # mean flow settings
+        # mean flow settings, the rate of r = t.
         flow_ratio=0.50,
         # time distribution, mu, sigma
         time_dist=['lognorm', -0.4, 1.0],
+        # ratio of masked class label.
         cfg_ratio=0.10,
         # set scale as none to disable CFG distill
         cfg_scale=2.0,
@@ -90,6 +61,7 @@ class MeanFlow:
         self.time_dist = time_dist
         self.cfg_ratio = cfg_ratio
         self.w = cfg_scale
+        self.noise_generator = NoiseGenerator()
 
         self.cfg_uncond = cfg_uncond
         self.jvp_api = jvp_api
@@ -116,9 +88,12 @@ class MeanFlow:
         t_np = np.maximum(samples[:, 0], samples[:, 1])
         r_np = np.minimum(samples[:, 0], samples[:, 1])
 
-        num_selected = int(self.flow_ratio * batch_size)
-        indices = np.random.permutation(batch_size)[:num_selected]
-        r_np[indices] = t_np[indices]
+        num_selected = int(self.flow_ratio * batch_size * 0.5)
+        indices_1 = np.random.permutation(batch_size)[num_selected:2*num_selected]
+        indices_2 = np.random.permutation(batch_size)[0:num_selected]
+     
+        r_np[indices_1] = t_np[indices_1]
+        t_np[indices_2] = r_np[indices_2]
 
         t = torch.tensor(t_np, device=device)
         r = torch.tensor(r_np, device=device)
@@ -128,35 +103,43 @@ class MeanFlow:
         batch_size = x.shape[0]
         device = x.device
 
+        # create t,r and arrange their elements in correct shape.(for broadcasting)
         t, r = self.sample_t_r(batch_size, device)
 
         t_ = rearrange(t, "b -> b 1 1 1").detach().clone()
         r_ = rearrange(r, "b -> b 1 1 1").detach().clone()
 
-        e = torch.randn_like(x)
         x = self.normer.norm(x)
+        #e = torch.randn_like(x) # simple function for generating epsilon.
+        e = self.noise_generator.sample(x)
+        
 
-        z = (1 - t_) * x + t_ * e
-        v = e - x
+        z = (1 - t_) * x + t_ * e # sample the z_t which is the position in midst.
+        v = e - x # calc the value of velocity field at (z_t)
 
         if c is not None:
             assert self.cfg_ratio is not None
             uncond = torch.ones_like(c) * self.num_classes
             cfg_mask = torch.rand_like(c.float()) < self.cfg_ratio
             c = torch.where(cfg_mask, uncond, c)
+            # w is the cfg scale. 
             if self.w is not None:
                 with torch.no_grad():
-                    u_t = model(z, t, t, uncond)
-                v_hat = self.w * v + (1 - self.w) * u_t
+                    u_t = model(z, t, t, uncond) # use the model t = t to generate the average instantaneous velocity at location z , time_step t.
+                v_hat = self.w * v + (1 - self.w) * u_t # this is v(z_t,t|c)
+                
+                # another way to deal with the cfg, different from the paper.
                 if self.cfg_uncond == 'v':
                     # offical JAX repo uses original v for unconditional items
                     cfg_mask = rearrange(cfg_mask, "b -> b 1 1 1").bool()
                     v_hat = torch.where(cfg_mask, v, v_hat)
             else:
+                #otherwise directly use v for there is no class info.
                 v_hat = v
 
         # forward pass
         # u = model(z, t, r, y=c)
+        # this is a smart way to devoid of the integer class label which can't take gradient.
         model_partial = partial(model, y=c)
         jvp_args = (
             lambda z, t, r: model_partial(z, t, r),
@@ -172,6 +155,8 @@ class MeanFlow:
         u_tgt = v_hat - (t_ - r_) * dudt
 
         error = u - stopgrad(u_tgt)
+        
+        # for both l2(mse) and adaptive loss.
         loss = adaptive_l2_loss(error)
         # loss = F.mse_loss(u, stopgrad(u_tgt))
 
@@ -180,19 +165,21 @@ class MeanFlow:
 
     @torch.no_grad()
     def sample_each_class(self, model, n_per_class, classes=None,
-                          sample_steps=5, device='cuda'):
+                          sample_steps=5, device='cuda', ):
         model.eval()
 
         if classes is None:
-            c = torch.arange(self.num_classes, device=device).repeat(n_per_class)
+            c = torch.arange(self.num_classes, device=device).repeat(n_per_class) # create a (0,1,...,num_classes-1) with n_per_class repetition
         else:
             c = torch.tensor(classes, device=device).repeat(n_per_class)
 
-        z = torch.randn(c.shape[0], self.channels,
-                        self.image_size, self.image_size,
-                        device=device)
+        dataloader = get_mnist_dataloader(batch_size = c.shape[0], train = False, num_workers = 1)
+        data, _ = next(iter(dataloader))
+        data = data.to(device)
+        z =  self.noise_generator.sample(data)
+        noise = z.clone()
 
-        t_vals = torch.linspace(1.0, 0.0, sample_steps + 1, device=device)
+        t_vals = torch.linspace(1.0, 0.0, sample_steps + 1, device=device) # t_intervals
 
         # print(t_vals)
 
@@ -200,13 +187,14 @@ class MeanFlow:
             t = torch.full((z.size(0),), t_vals[i], device=device)
             r = torch.full((z.size(0),), t_vals[i + 1], device=device)
 
-            # print(f"t: {t[0].item():.4f};  r: {r[0].item():.4f}")
-
+            # print(f"t: {t[0].item():.4f};  r: {r[0].item():.4f}"
+            
             t_ = rearrange(t, "b -> b 1 1 1").detach().clone()
             r_ = rearrange(r, "b -> b 1 1 1").detach().clone()
 
-            v = model(z, t, r, c)
-            z = z - (t_-r_) * v
-
-        z = self.normer.unnorm(z)
-        return z
+            uncond = torch.ones_like(c) * self.num_classes
+            v = model(z , t,  r, uncond)
+            z = z - (t_-r_) * v # z is the raw image tensor.
+            
+        z = self.normer.unnorm(z) # the denoised corrupted image
+        return data, z, noise

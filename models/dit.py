@@ -10,6 +10,17 @@ from torch.cuda.amp import autocast
 
 
 def modulate(x, scale, shift):
+    """
+    modulation is for adapting the blocks to timestep or class
+
+    Args:
+        x : tensor with shape (N, T, D)
+        scale : learnable standard deviation
+        shift : learnable average value
+
+    Returns:
+        Normed X with modulate.
+    """
     return x * (1 + scale.unsqueeze(1)) + shift.unsqueeze(1)
 
 
@@ -27,7 +38,7 @@ class TimestepEmbedder(nn.Module):
             * torch.arange(start=0, end=half_dim, dtype=torch.float32)
             / half_dim
         ).to(device=t.device)
-        args = t[:, None].float() * freqs[None]
+        args = t.reshape(-1,1) * freqs.reshape(1,-1)
         embedding = torch.cat([torch.cos(args), torch.sin(args)], dim=-1)
         if dim % 2:
             embedding = torch.cat(
@@ -45,6 +56,7 @@ class TimestepEmbedder(nn.Module):
 class LabelEmbedder(nn.Module):
     def __init__(self, num_classes, dim):
         super().__init__()
+        # label embedding is a typical raw nn.embedding to learn from the train
         self.embedding = nn.Embedding(num_classes + 1, dim)
         self.num_classes = num_classes
 
@@ -54,50 +66,71 @@ class LabelEmbedder(nn.Module):
 
 
 class RMSNorm(nn.Module):
+    #Replaces standard LayerNorm with RMSNorm for computational stability and simplicity.
     def __init__(self, dim):
         super().__init__()
         self.scale = dim**0.5
         self.g = nn.Parameter(torch.ones(1))
 
     def forward(self, x):
+        """
+        x: (N, T, D), N for batch_size T for num_tokens and D for embedding dimension
+        First normalize the x to a unit vector (L2 norm = 1)
+        then Scale by self.g to be real RMS Normalization
+        Finally scale by self.g (init with 1), which is set learnable for enhanced flexibilty.
+        """
         return F.normalize(x, dim=-1) * self.scale * self.g
 
 
 class DiTBlock(nn.Module):
     def __init__(self, dim, num_heads, mlp_ratio=4.0):
         super().__init__()
+        # first norm is for attention layers
         self.norm1 = RMSNorm(dim)
         self.attn = Attention(dim, num_heads=num_heads, qkv_bias=True, qk_norm=True, norm_layer=RMSNorm)
         # flasth attn can not be used with jvp
         self.attn.fused_attn = False
+        
+        # second norm is for FeedForward layers
         self.norm2 = RMSNorm(dim)
         mlp_dim = int(dim * mlp_ratio)
         approx_gelu = lambda: nn.GELU(approximate="tanh")
         self.mlp = Mlp(
-            in_features=dim, hidden_features=mlp_dim, act_layer=approx_gelu, drop=0
-        )
+            in_features=dim, 
+            hidden_features=mlp_dim, 
+            act_layer=approx_gelu, 
+            drop=0
+        ) #serve as feedforward network
         self.adaLN_modulation = nn.Sequential(nn.SiLU(), nn.Linear(dim, 6 * dim))
 
     def forward(self, x, c):
+        # genarate 6 vectors for shift scale and gate
         shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = (
             self.adaLN_modulation(c).chunk(6, dim=-1)
         )
+        
+        # residaal layer addition 1
+        # do attention of the (norm+modulated x)
         x = x + gate_msa.unsqueeze(1) * self.attn(
             modulate(self.norm1(x), scale_msa, shift_msa)
         )
+        # residaal layer addition 2
+        # do feedforward of the (norm+modulated x)
         x = x + gate_mlp.unsqueeze(1) * self.mlp(
             modulate(self.norm2(x), scale_mlp, shift_mlp)
         )
+        
         return x
 
 
 class FinalLayer(nn.Module):
     def __init__(self, dim, patch_size, out_dim):
+        
         super().__init__()
         self.norm_final = RMSNorm(dim)
-        self.linear = nn.Linear(dim, patch_size * patch_size * out_dim)
+        self.linear = nn.Linear(dim, patch_size * patch_size * out_dim) 
         self.adaLN_modulation = nn.Sequential(nn.SiLU(), nn.Linear(dim, 2 * dim))
-
+        
     def forward(self, x, c):
         shift, scale = self.adaLN_modulation(c).chunk(2, dim=-1)
         x = modulate(self.norm_final(x), shift, scale)
@@ -124,21 +157,26 @@ class MFDiT(nn.Module):
         self.patch_size = patch_size
         self.num_heads = num_heads
         self.num_classes = num_classes
-
-        self.x_embedder = PatchEmbed(input_size, patch_size, in_channels, dim)
+        
+        # instantiate the embedders
+        self.x_embedder = PatchEmbed(input_size, patch_size, in_channels, dim) # do convolution, flatten, projection and reshape . from (N, C, H, W) to (N, T = H*W/P**2, D = 2* P**2)
         self.t_embedder = TimestepEmbedder(dim)
         self.r_embedder = TimestepEmbedder(dim)
 
+        # set y_embedder for cfg task
         self.use_cond = num_classes is not None
         self.y_embedder = LabelEmbedder(num_classes, dim) if self.use_cond else None
-
+        
+        # D = H*W/P**2
         num_patches = self.x_embedder.num_patches
-        # Will use fixed sin-cos embedding:
+        # Will use fixed sin-cos embedding for position:
         self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, dim), requires_grad=True)
 
+        # the core transformer blocks
         self.blocks = nn.ModuleList([
             DiTBlock(dim, num_heads, mlp_ratio) for _ in range(depth)
         ])
+        
         self.final_layer = FinalLayer(dim, patch_size, self.out_channels)
 
         self.initialize_weights()
@@ -182,8 +220,12 @@ class MFDiT(nn.Module):
 
     def unpatchify(self, x):
         """
-        x: (N, T, patch_size**2 * C)
+        x: (N, T, patch_size**2 * C) # output token tensors
         imgs: (N, H, W, C)
+        this code:
+        Reshapes them into 2D patch grids
+        Reorders them to match image layout
+        Stitches the small patches into full-sized image
         """
         c = self.out_channels
         p = self.x_embedder.patch_size[0]
@@ -191,7 +233,7 @@ class MFDiT(nn.Module):
         assert h * w == x.shape[1]
 
         x = x.reshape(shape=(x.shape[0], h, w, p, p, c))
-        x = torch.einsum('nhwpqc->nchpwq', x)
+        x = torch.einsum('nhwpqc->nchpwq', x) # x: (N, C, H_patch, P, W_patch, P) → (N, C, h, p, w, p)
         imgs = x.reshape(shape=(x.shape[0], c, h * p, h * p))
         return imgs
 
@@ -220,7 +262,7 @@ class MFDiT(nn.Module):
         for i, block in enumerate(self.blocks):
             x = block(x, c)                      # (N, T, D)
 
-        x = self.final_layer(x, c)                # (N, T, patch_size ** 2 * out_channels)
+        x = self.final_layer(x, c)                # (N, T, patch_size ** 2 * out_channels): get ready for unpatchifying
         x = self.unpatchify(x)                   # (N, out_channels, H, W)
         return x
 

@@ -1,59 +1,66 @@
+#train without dumping the image tensor into latent space.
+
 from models.dit import MFDiT
 import torch
-import torchvision
 from torchvision import transforms as T
 from torchvision.utils import make_grid, save_image
 from tqdm import tqdm
 from meanflow import MeanFlow
 from accelerate import Accelerator
 import time
-import os
+from pathlib import Path
+from datasets import get_mnist_dataloader
+from utils import model_size_mib, load_checkpoint
+from metric import MetricTracker
+
+# create the path to save the results
+
+torch.cuda.empty_cache()
+parent_path = Path.cwd()
+project_name = "MF_image_restorer"
+image_path = parent_path / "images" /project_name 
+checkpoint_path = parent_path /"checkpoints" / project_name 
+image_path.mkdir(parents=True, exist_ok = True)
+checkpoint_path.mkdir(parents = True, exist_ok = True)
+
+
 
 
 if __name__ == '__main__':
-    n_steps = 200000
+    # set training info
+    n_steps = 20000
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    batch_size = 48
-    os.makedirs('images', exist_ok=True)
-    os.makedirs('checkpoints', exist_ok=True)
+    batch_size = 128
     accelerator = Accelerator(mixed_precision='fp16')
-
-    dataset = torchvision.datasets.CIFAR10(
-        root="cifar",
-        train=True,
-        download=True,
-        transform=T.Compose([T.ToTensor(), T.RandomHorizontalFlip()]),
-    )
-    # dataset = torchvision.datasets.MNIST(
-    #     root="mnist",
-    #     train=True,
-    #     download=True,
-    #     transform=T.Compose([T.Resize((32, 32)), T.ToTensor(),]),
-    # )
-
+  
+    # set up the datalaoder for training
     def cycle(iterable):
         while True:
             for i in iterable:
                 yield i
 
-    train_dataloader = torch.utils.data.DataLoader(
-        dataset, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=8
-    )
+    train_dataloader = get_mnist_dataloader(batch_size= batch_size) # so is the batch_size 128?
     train_dataloader = cycle(train_dataloader)
 
+    # create and config the model, optimizer instance for training
     model = MFDiT(
         input_size=32,
         patch_size=2,
-        in_channels=3,
-        dim=384,
-        depth=12,
-        num_heads=6,
+        in_channels=1,
+        dim=72,
+        depth=6,
+        num_heads=3,
         num_classes=10,
     ).to(accelerator.device)
 
+    model = load_checkpoint(model = model, project_name= project_name, trained_step = 100000)
+
+    print(f"size of the model:{model_size_mib(model):.3f}Mib")
+    
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=0.0)
 
-    meanflow = MeanFlow(channels=3,
+    # set the CFG training parameters, meanflow is a set of functions for meanflow cfg training
+    meanflow = MeanFlow(channels=1,
                         image_size=32,
                         num_classes=10,
                         flow_ratio=0.50,
@@ -65,35 +72,48 @@ if __name__ == '__main__':
 
     model, optimizer, train_dataloader = accelerator.prepare(model, optimizer, train_dataloader)
 
+    # initialize the experiment metrics
     global_step = 0.0
     losses = 0.0
     mse_losses = 0.0
 
     log_step = 500
     sample_step = 500
-
+    save_checkpoint_step = 5000
+    
+    tracker = MetricTracker()
+    
     with tqdm(range(n_steps), dynamic_ncols=True) as pbar:
         pbar.set_description("Training")
         model.train()
         for step in pbar:
-            data = next(train_dataloader)
+            data = next(train_dataloader) # one batch is loaded for training.
+            # question: the next(iter) method and enumerate method: how many num_workers are used for loading the data?
+            
+            # c: class
             x = data[0].to(accelerator.device)
             c = data[1].to(accelerator.device)
+            c = torch.ones_like(c) * 10
 
+            # let model generate hte
             loss, mse_val = meanflow.loss(model, x, c)
-
-            accelerator.backward(loss)
+            tracker.update(loss.item(), mse_val.item())
+            
+            
+            accelerator.backward(loss) #use accelerator's backward method instead of loss.backward
             optimizer.step()
             optimizer.zero_grad()
 
             global_step += 1
+            #Question: what is the difference of loss and mse_loss
             losses += loss.item()
-            mse_losses += mse_val.item()
+            mse_losses += mse_val.item() 
 
             if accelerator.is_main_process:
                 if global_step % log_step == 0:
+                    # After training log_step steps, do the recording.
                     current_time = time.asctime(time.localtime(time.time()))
-                    batch_info = f'Global Step: {global_step}'
+                    batch_info = f'Global Step: {int(global_step)}'
                     loss_info = f'Loss: {losses / log_step:.6f}    MSE_Loss: {mse_losses / log_step:.6f}'
 
                     # Extract the learning rate from the optimizer
@@ -103,21 +123,30 @@ if __name__ == '__main__':
                     log_message = f'{current_time}\n{batch_info}    {loss_info}    {lr_info}\n'
 
                     with open('log.txt', mode='a') as n:
+                        # append the new message into the training log.
                         n.write(log_message)
 
                     losses = 0.0
                     mse_losses = 0.0
 
             if global_step % sample_step == 0:
+                
                 if accelerator.is_main_process:
                     model_module = model.module if hasattr(model, 'module') else model
-                    z = meanflow.sample_each_class(model_module, 1)
-                    log_img = make_grid(z, nrow=10)
-                    img_save_path = f"images/step_{global_step}.png"
+                    original_images, z, noise = meanflow.sample_each_class(model, 1) 
+                    imgs_tensor = torch.cat((original_images, z, noise),dim = 0)
+                    tracker.calc_psnr(original_image=original_images, restored_image = z)
+                    log_img = make_grid(imgs_tensor, nrow=10)
+                    img_save_path = image_path/f"step_{int(global_step)}.png"
                     save_image(log_img, img_save_path)
+                                    
                 accelerator.wait_for_everyone()
                 model.train()
                 
-    if accelerator.is_main_process:
-        ckpt_path = f"checkpoints/step_{global_step}.pt"
-        accelerator.save(model_module.state_dict(), ckpt_path)
+            if global_step % save_checkpoint_step == 0:
+                #between each save_checkpoint_step, save the model state dict.
+                ckpt_save_path = checkpoint_path / f"step_{int(global_step)}.pt"
+                accelerator.save(model_module.state_dict(), ckpt_save_path)
+    
+    
+    tracker.plot("metrics.png")
