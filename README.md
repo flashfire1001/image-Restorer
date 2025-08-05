@@ -1,4 +1,6 @@
-# Final Report 
+# 2025-summer-project.
+
+
 
 受到ZHB的影响, 这周我主要在看Transformer 架构的流模型搭建. 基于网上的资料, AI的解释和论文*Attention is all you need* 我学习了Transformer的思想原理和实现.
 
