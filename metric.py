@@ -10,7 +10,7 @@ import torch
 
 
 class MetricTracker:
-    def __init__(self, window_length= 17, polyorder=3):
+    def __init__(self, window_length= 21, polyorder=3):
         assert window_length % 2 == 1, "window_length must be odd"
         self.window_length = window_length
         self.polyorder = polyorder

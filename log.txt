@@ -1,308 +1,254 @@
-Wed Jul 30 23:12:03 2025
-Global Step: 500    Loss: 0.137413    MSE_Loss: 0.098610    Learning Rate: 0.000100
-Wed Jul 30 23:13:48 2025
-Global Step: 1000    Loss: 0.086897    MSE_Loss: 0.038341    Learning Rate: 0.000100
-Wed Jul 30 23:15:32 2025
-Global Step: 1500    Loss: 0.059982    MSE_Loss: 0.018081    Learning Rate: 0.000100
-Wed Jul 30 23:17:17 2025
-Global Step: 2000    Loss: 0.050917    MSE_Loss: 0.014001    Learning Rate: 0.000100
-Wed Jul 30 23:22:22 2025
-Global Step: 500    Loss: 0.529678    MSE_Loss: 1.703118    Learning Rate: 0.000100
-Wed Jul 30 23:24:06 2025
-Global Step: 1000    Loss: 0.138894    MSE_Loss: 0.073487    Learning Rate: 0.000100
-Wed Jul 30 23:25:53 2025
-Global Step: 1500    Loss: 0.082625    MSE_Loss: 0.025734    Learning Rate: 0.000100
-Wed Jul 30 23:27:48 2025
-Global Step: 2000    Loss: 0.060962    MSE_Loss: 0.015238    Learning Rate: 0.000100
-Wed Jul 30 23:29:32 2025
-Global Step: 2500    Loss: 0.046785    MSE_Loss: 0.008692    Learning Rate: 0.000100
-Wed Jul 30 23:31:16 2025
-Global Step: 3000    Loss: 0.039787    MSE_Loss: 0.006596    Learning Rate: 0.000100
-Wed Jul 30 23:33:00 2025
-Global Step: 3500    Loss: 0.033301    MSE_Loss: 0.004849    Learning Rate: 0.000100
-Wed Jul 30 23:34:44 2025
-Global Step: 4000    Loss: 0.041059    MSE_Loss: 0.007645    Learning Rate: 0.000100
-Wed Jul 30 23:36:28 2025
-Global Step: 4500    Loss: 0.042294    MSE_Loss: 0.008143    Learning Rate: 0.000100
-Wed Jul 30 23:38:12 2025
-Global Step: 5000    Loss: 0.043285    MSE_Loss: 0.008416    Learning Rate: 0.000100
-Wed Jul 30 23:39:56 2025
-Global Step: 5500    Loss: 0.046272    MSE_Loss: 0.010916    Learning Rate: 0.000100
-Wed Jul 30 23:41:40 2025
-Global Step: 6000    Loss: 0.048161    MSE_Loss: 0.010819    Learning Rate: 0.000100
-Wed Jul 30 23:43:24 2025
-Global Step: 6500    Loss: 0.046860    MSE_Loss: 0.010836    Learning Rate: 0.000100
-Thu Jul 31 15:56:12 2025
-Global Step: 500    Loss: 1.365340    MSE_Loss: 5.212371    Learning Rate: 0.000100
-Thu Jul 31 15:58:22 2025
-Global Step: 1000    Loss: 1.200326    MSE_Loss: 4.198551    Learning Rate: 0.000100
-Thu Jul 31 16:00:31 2025
-Global Step: 1500    Loss: 1.154049    MSE_Loss: 3.887988    Learning Rate: 0.000100
-Thu Jul 31 16:03:01 2025
-Global Step: 2000    Loss: 1.073487    MSE_Loss: 3.077013    Learning Rate: 0.000100
-Thu Jul 31 16:05:11 2025
-Global Step: 2500    Loss: 1.115332    MSE_Loss: 3.455513    Learning Rate: 0.000100
-Thu Jul 31 16:07:22 2025
-Global Step: 3000    Loss: 1.093323    MSE_Loss: 3.276809    Learning Rate: 0.000100
-Thu Jul 31 16:10:24 2025
-Global Step: 3500    Loss: 1.119033    MSE_Loss: 3.639038    Learning Rate: 0.000100
-Thu Jul 31 16:13:28 2025
-Global Step: 4000    Loss: 1.090350    MSE_Loss: 3.449286    Learning Rate: 0.000100
-Thu Jul 31 17:39:54 2025
-Global Step: 500    Loss: 1.067049    MSE_Loss: 3.464793    Learning Rate: 0.000100
-Thu Jul 31 17:43:11 2025
-Global Step: 1000    Loss: 0.805204    MSE_Loss: 2.273874    Learning Rate: 0.000100
-Thu Jul 31 17:46:22 2025
-Global Step: 1500    Loss: 0.665292    MSE_Loss: 1.515037    Learning Rate: 0.000100
-Thu Jul 31 17:49:43 2025
-Global Step: 2000    Loss: 0.595084    MSE_Loss: 1.306944    Learning Rate: 0.000100
-Thu Jul 31 17:51:26 2025
-Global Step: 2500    Loss: 0.541009    MSE_Loss: 0.982886    Learning Rate: 0.000100
-Thu Jul 31 17:53:09 2025
-Global Step: 3000    Loss: 0.551247    MSE_Loss: 1.382712    Learning Rate: 0.000100
-Thu Jul 31 17:54:51 2025
-Global Step: 3500    Loss: 0.515750    MSE_Loss: 1.138313    Learning Rate: 0.000100
-Thu Jul 31 17:56:34 2025
-Global Step: 4000    Loss: 0.516768    MSE_Loss: 1.157424    Learning Rate: 0.000100
-Thu Jul 31 17:58:17 2025
-Global Step: 4500    Loss: 0.452093    MSE_Loss: 0.825068    Learning Rate: 0.000100
-Thu Jul 31 18:00:00 2025
-Global Step: 5000    Loss: 0.427838    MSE_Loss: 0.839331    Learning Rate: 0.000100
-Thu Jul 31 18:01:43 2025
-Global Step: 5500    Loss: 0.399334    MSE_Loss: 0.696489    Learning Rate: 0.000100
-Thu Jul 31 18:03:26 2025
-Global Step: 6000    Loss: 0.363774    MSE_Loss: 0.556114    Learning Rate: 0.000100
-Thu Jul 31 18:05:09 2025
-Global Step: 6500    Loss: 0.336829    MSE_Loss: 0.404010    Learning Rate: 0.000100
-Thu Jul 31 18:06:52 2025
-Global Step: 7000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000100
-Thu Jul 31 18:08:35 2025
-Global Step: 7500    Loss: 0.286163    MSE_Loss: 0.311470    Learning Rate: 0.000100
-Thu Jul 31 20:41:20 2025
-Global Step: 500    Loss: 1.370241    MSE_Loss: 5.007694    Learning Rate: 0.000100
-Thu Jul 31 21:14:56 2025
-Global Step: 500    Loss: 1.337568    MSE_Loss: 4.649985    Learning Rate: 0.000100
-Thu Jul 31 21:18:55 2025
-Global Step: 500    Loss: 1.353133    MSE_Loss: 4.777892    Learning Rate: 0.000100
-Thu Jul 31 21:20:39 2025
-Global Step: 1000    Loss: 1.244487    MSE_Loss: 4.434905    Learning Rate: 0.000100
-Thu Jul 31 21:22:23 2025
-Global Step: 1500    Loss: 1.191224    MSE_Loss: 4.020935    Learning Rate: 0.000100
-Thu Jul 31 21:24:07 2025
-Global Step: 2000    Loss: 1.206026    MSE_Loss: 4.296096    Learning Rate: 0.000100
-Thu Jul 31 21:25:52 2025
-Global Step: 2500    Loss: 1.184063    MSE_Loss: 4.237312    Learning Rate: 0.000100
-Thu Jul 31 21:27:36 2025
-Global Step: 3000    Loss: 1.180581    MSE_Loss: 4.349706    Learning Rate: 0.000100
-Thu Jul 31 21:29:20 2025
-Global Step: 3500    Loss: 1.155070    MSE_Loss: 4.188585    Learning Rate: 0.000100
-Thu Jul 31 21:31:04 2025
-Global Step: 4000    Loss: 1.119747    MSE_Loss: 3.553317    Learning Rate: 0.000100
-Thu Jul 31 21:32:47 2025
-Global Step: 4500    Loss: 1.165875    MSE_Loss: 4.207281    Learning Rate: 0.000100
-Thu Jul 31 21:34:31 2025
-Global Step: 5000    Loss: 1.127152    MSE_Loss: 3.790010    Learning Rate: 0.000100
-Thu Jul 31 21:36:14 2025
-Global Step: 5500    Loss: 1.081310    MSE_Loss: 3.543237    Learning Rate: 0.000100
-Thu Jul 31 21:37:58 2025
-Global Step: 6000    Loss: 1.020767    MSE_Loss: 2.849102    Learning Rate: 0.000100
-Thu Jul 31 21:39:41 2025
-Global Step: 6500    Loss: 1.041556    MSE_Loss: 3.288208    Learning Rate: 0.000100
-Thu Jul 31 21:41:25 2025
-Global Step: 7000    Loss: 1.099632    MSE_Loss: 3.701509    Learning Rate: 0.000100
-Thu Jul 31 21:43:08 2025
-Global Step: 7500    Loss: 1.007756    MSE_Loss: 3.054624    Learning Rate: 0.000100
-Thu Jul 31 21:44:52 2025
-Global Step: 8000    Loss: 1.161512    MSE_Loss: 4.604500    Learning Rate: 0.000100
-Thu Jul 31 21:46:35 2025
-Global Step: 8500    Loss: 1.124109    MSE_Loss: 4.033982    Learning Rate: 0.000100
-Thu Jul 31 21:48:19 2025
-Global Step: 9000    Loss: 1.052751    MSE_Loss: 3.548422    Learning Rate: 0.000100
-Thu Jul 31 21:50:02 2025
-Global Step: 9500    Loss: 0.963645    MSE_Loss: 2.674022    Learning Rate: 0.000100
-Thu Jul 31 21:51:46 2025
-Global Step: 10000    Loss: 0.945626    MSE_Loss: 2.493493    Learning Rate: 0.000100
-Thu Jul 31 21:53:29 2025
-Global Step: 10500    Loss: 0.946649    MSE_Loss: 2.546161    Learning Rate: 0.000100
-Thu Jul 31 21:55:13 2025
-Global Step: 11000    Loss: 0.969340    MSE_Loss: 2.674496    Learning Rate: 0.000100
-Thu Jul 31 21:56:57 2025
-Global Step: 11500    Loss: 0.963745    MSE_Loss: 2.542800    Learning Rate: 0.000100
-Thu Jul 31 21:58:41 2025
-Global Step: 12000    Loss: 0.962201    MSE_Loss: 2.688019    Learning Rate: 0.000100
-Thu Jul 31 22:00:24 2025
-Global Step: 12500    Loss: 1.001003    MSE_Loss: 3.016815    Learning Rate: 0.000100
-Thu Jul 31 22:02:08 2025
-Global Step: 13000    Loss: 0.946298    MSE_Loss: 2.607678    Learning Rate: 0.000100
-Thu Jul 31 22:03:52 2025
-Global Step: 13500    Loss: 0.912720    MSE_Loss: 2.408000    Learning Rate: 0.000100
-Thu Jul 31 22:05:35 2025
-Global Step: 14000    Loss: 0.893595    MSE_Loss: 2.186852    Learning Rate: 0.000100
-Thu Jul 31 22:07:19 2025
-Global Step: 14500    Loss: 0.884793    MSE_Loss: 2.094212    Learning Rate: 0.000100
-Thu Jul 31 22:09:02 2025
-Global Step: 15000    Loss: 0.908937    MSE_Loss: 2.346412    Learning Rate: 0.000100
-Thu Jul 31 22:10:46 2025
-Global Step: 15500    Loss: 0.888238    MSE_Loss: 2.123841    Learning Rate: 0.000100
-Thu Jul 31 22:12:30 2025
-Global Step: 16000    Loss: 0.867270    MSE_Loss: 2.068319    Learning Rate: 0.000100
-Thu Jul 31 22:14:14 2025
-Global Step: 16500    Loss: 0.871169    MSE_Loss: 2.101417    Learning Rate: 0.000100
-Thu Jul 31 22:15:58 2025
-Global Step: 17000    Loss: 0.918533    MSE_Loss: 2.405634    Learning Rate: 0.000100
-Thu Jul 31 22:17:42 2025
-Global Step: 17500    Loss: 0.878772    MSE_Loss: 2.210977    Learning Rate: 0.000100
-Thu Jul 31 22:19:25 2025
-Global Step: 18000    Loss: 0.842255    MSE_Loss: 1.927900    Learning Rate: 0.000100
-Thu Jul 31 22:21:09 2025
-Global Step: 18500    Loss: 0.901604    MSE_Loss: 2.653911    Learning Rate: 0.000100
-Thu Jul 31 22:22:53 2025
-Global Step: 19000    Loss: 0.807947    MSE_Loss: 1.934823    Learning Rate: 0.000100
-Thu Jul 31 22:24:37 2025
-Global Step: 19500    Loss: 0.833955    MSE_Loss: 1.971773    Learning Rate: 0.000100
-Thu Jul 31 22:26:20 2025
-Global Step: 20000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000100
-Thu Jul 31 22:49:25 2025
-Global Step: 500    Loss: 1.027554    MSE_Loss: 2.702080    Learning Rate: 0.000100
-Thu Jul 31 22:57:23 2025
-Global Step: 500    Loss: 0.987932    MSE_Loss: 1.207017    Learning Rate: 0.000100
-Thu Jul 31 22:59:06 2025
-Global Step: 1000    Loss: 0.958414    MSE_Loss: 1.417568    Learning Rate: 0.000100
-Thu Jul 31 23:00:49 2025
-Global Step: 1500    Loss: 1.034911    MSE_Loss: 1.894815    Learning Rate: 0.000100
-Thu Jul 31 23:02:31 2025
-Global Step: 2000    Loss: 1.021494    MSE_Loss: 1.828817    Learning Rate: 0.000100
-Thu Jul 31 23:04:14 2025
-Global Step: 2500    Loss: 1.037080    MSE_Loss: 1.889218    Learning Rate: 0.000100
-Thu Jul 31 23:05:56 2025
-Global Step: 3000    Loss: 1.010650    MSE_Loss: 1.737548    Learning Rate: 0.000100
-Thu Jul 31 23:07:39 2025
-Global Step: 3500    Loss: 1.107210    MSE_Loss: 2.211397    Learning Rate: 0.000100
-Thu Jul 31 23:09:22 2025
-Global Step: 4000    Loss: 1.113991    MSE_Loss: 2.241137    Learning Rate: 0.000100
-Thu Jul 31 23:11:05 2025
-Global Step: 4500    Loss: 1.111358    MSE_Loss: 2.230386    Learning Rate: 0.000100
-Thu Jul 31 23:12:47 2025
-Global Step: 5000    Loss: 1.275512    MSE_Loss: 3.571143    Learning Rate: 0.000100
-Thu Jul 31 23:14:30 2025
-Global Step: 5500    Loss: 1.259659    MSE_Loss: 3.506041    Learning Rate: 0.000100
-Thu Jul 31 23:16:12 2025
-Global Step: 6000    Loss: 1.124774    MSE_Loss: 2.510047    Learning Rate: 0.000100
-Thu Jul 31 23:17:55 2025
-Global Step: 6500    Loss: 1.105449    MSE_Loss: 2.336064    Learning Rate: 0.000100
-Thu Jul 31 23:19:38 2025
-Global Step: 7000    Loss: 1.174984    MSE_Loss: 2.755611    Learning Rate: 0.000100
-Thu Jul 31 23:21:21 2025
-Global Step: 7500    Loss: 1.155703    MSE_Loss: 2.628233    Learning Rate: 0.000100
-Thu Jul 31 23:23:04 2025
-Global Step: 8000    Loss: 1.169273    MSE_Loss: 2.763474    Learning Rate: 0.000100
-Thu Jul 31 23:24:47 2025
-Global Step: 8500    Loss: 1.131248    MSE_Loss: 2.586502    Learning Rate: 0.000100
-Thu Jul 31 23:26:30 2025
-Global Step: 9000    Loss: 1.123106    MSE_Loss: 2.550847    Learning Rate: 0.000100
-Thu Jul 31 23:28:13 2025
-Global Step: 9500    Loss: 1.046160    MSE_Loss: 2.142446    Learning Rate: 0.000100
-Fri Aug  1 20:35:32 2025
-Global Step: 500    Loss: 1.105044    MSE_Loss: 3.008135    Learning Rate: 0.000100
-Fri Aug  1 20:37:15 2025
-Global Step: 1000    Loss: 1.009095    MSE_Loss: 2.296517    Learning Rate: 0.000100
-Fri Aug  1 20:38:57 2025
-Global Step: 1500    Loss: 0.958346    MSE_Loss: 1.903220    Learning Rate: 0.000100
-Fri Aug  1 20:40:40 2025
-Global Step: 2000    Loss: 0.953678    MSE_Loss: 1.944825    Learning Rate: 0.000100
-Fri Aug  1 20:43:05 2025
-Global Step: 500    Loss: 0.994366    MSE_Loss: 2.519882    Learning Rate: 0.000100
-Fri Aug  1 20:44:48 2025
-Global Step: 1000    Loss: 0.837493    MSE_Loss: 1.549122    Learning Rate: 0.000100
-Fri Aug  1 20:46:31 2025
-Global Step: 1500    Loss: 0.804293    MSE_Loss: 1.351694    Learning Rate: 0.000100
-Fri Aug  1 20:48:14 2025
-Global Step: 2000    Loss: 0.860201    MSE_Loss: 1.632699    Learning Rate: 0.000100
-Fri Aug  1 20:50:25 2025
-Global Step: 500    Loss: 0.957211    MSE_Loss: 2.394941    Learning Rate: 0.000100
-Fri Aug  1 20:52:07 2025
-Global Step: 1000    Loss: 0.802501    MSE_Loss: 1.380279    Learning Rate: 0.000100
-Fri Aug  1 20:53:50 2025
-Global Step: 1500    Loss: 0.818557    MSE_Loss: 1.421948    Learning Rate: 0.000100
-Fri Aug  1 20:55:33 2025
-Global Step: 2000    Loss: 0.799832    MSE_Loss: 1.313049    Learning Rate: 0.000100
-Fri Aug  1 21:02:43 2025
-Global Step: 500    Loss: 1.024419    MSE_Loss: 2.768512    Learning Rate: 0.000100
-Fri Aug  1 21:04:26 2025
-Global Step: 1000    Loss: 0.851921    MSE_Loss: 1.610037    Learning Rate: 0.000100
-Fri Aug  1 21:06:08 2025
-Global Step: 1500    Loss: 0.813998    MSE_Loss: 1.398752    Learning Rate: 0.000100
-Fri Aug  1 21:07:51 2025
-Global Step: 2000    Loss: 0.787539    MSE_Loss: 1.260913    Learning Rate: 0.000100
-Fri Aug  1 21:09:33 2025
-Global Step: 2500    Loss: 0.787380    MSE_Loss: 1.261411    Learning Rate: 0.000100
-Fri Aug  1 21:11:16 2025
-Global Step: 3000    Loss: 0.794299    MSE_Loss: 1.287842    Learning Rate: 0.000100
-Fri Aug  1 21:12:59 2025
-Global Step: 3500    Loss: 0.788161    MSE_Loss: 1.214905    Learning Rate: 0.000100
-Fri Aug  1 21:14:41 2025
-Global Step: 4000    Loss: 0.844465    MSE_Loss: 1.546516    Learning Rate: 0.000100
-Fri Aug  1 21:16:24 2025
-Global Step: 4500    Loss: 0.857446    MSE_Loss: 1.548296    Learning Rate: 0.000100
-Fri Aug  1 21:18:06 2025
-Global Step: 5000    Loss: 0.806828    MSE_Loss: 1.328997    Learning Rate: 0.000100
-Fri Aug  1 21:19:49 2025
-Global Step: 5500    Loss: 0.814988    MSE_Loss: 1.445552    Learning Rate: 0.000100
-Fri Aug  1 21:21:32 2025
-Global Step: 6000    Loss: 0.820689    MSE_Loss: 1.468460    Learning Rate: 0.000100
-Fri Aug  1 21:23:14 2025
-Global Step: 6500    Loss: 0.834194    MSE_Loss: 1.441309    Learning Rate: 0.000100
-Fri Aug  1 21:24:57 2025
-Global Step: 7000    Loss: 0.932299    MSE_Loss: 1.989610    Learning Rate: 0.000100
-Fri Aug  1 21:26:39 2025
-Global Step: 7500    Loss: 0.895389    MSE_Loss: 1.768866    Learning Rate: 0.000100
-Fri Aug  1 21:28:22 2025
-Global Step: 8000    Loss: 0.875608    MSE_Loss: 1.673598    Learning Rate: 0.000100
-Fri Aug  1 21:30:05 2025
-Global Step: 8500    Loss: 0.810554    MSE_Loss: 1.364807    Learning Rate: 0.000100
-Fri Aug  1 21:31:47 2025
-Global Step: 9000    Loss: 0.771173    MSE_Loss: 1.222706    Learning Rate: 0.000100
-Fri Aug  1 21:33:30 2025
-Global Step: 9500    Loss: 0.824643    MSE_Loss: 1.488012    Learning Rate: 0.000100
-Fri Aug  1 21:35:12 2025
-Global Step: 10000    Loss: 0.829918    MSE_Loss: 1.599436    Learning Rate: 0.000100
-Fri Aug  1 21:36:55 2025
-Global Step: 10500    Loss: 0.828000    MSE_Loss: 1.511153    Learning Rate: 0.000100
-Fri Aug  1 21:38:38 2025
-Global Step: 11000    Loss: 0.866208    MSE_Loss: 1.692541    Learning Rate: 0.000100
-Fri Aug  1 21:40:20 2025
-Global Step: 11500    Loss: 0.816380    MSE_Loss: 1.483098    Learning Rate: 0.000100
-Fri Aug  1 21:42:03 2025
-Global Step: 12000    Loss: 0.817184    MSE_Loss: 1.424101    Learning Rate: 0.000100
-Fri Aug  1 21:43:45 2025
-Global Step: 12500    Loss: 0.838560    MSE_Loss: 1.594145    Learning Rate: 0.000100
-Fri Aug  1 21:45:28 2025
-Global Step: 13000    Loss: 0.838957    MSE_Loss: 1.606753    Learning Rate: 0.000100
-Fri Aug  1 21:47:11 2025
-Global Step: 13500    Loss: 0.861865    MSE_Loss: 1.753656    Learning Rate: 0.000100
-Fri Aug  1 21:48:54 2025
-Global Step: 14000    Loss: 0.875725    MSE_Loss: 1.773084    Learning Rate: 0.000100
-Fri Aug  1 21:50:36 2025
-Global Step: 14500    Loss: 0.854759    MSE_Loss: 1.711139    Learning Rate: 0.000100
-Fri Aug  1 21:52:19 2025
-Global Step: 15000    Loss: 0.933835    MSE_Loss: 2.178291    Learning Rate: 0.000100
-Fri Aug  1 21:54:02 2025
-Global Step: 15500    Loss: 0.937090    MSE_Loss: 2.068083    Learning Rate: 0.000100
-Fri Aug  1 21:55:45 2025
-Global Step: 16000    Loss: 0.923329    MSE_Loss: 2.090808    Learning Rate: 0.000100
-Fri Aug  1 21:57:27 2025
-Global Step: 16500    Loss: 0.859504    MSE_Loss: 1.726776    Learning Rate: 0.000100
-Fri Aug  1 21:59:10 2025
-Global Step: 17000    Loss: 0.859988    MSE_Loss: 1.816582    Learning Rate: 0.000100
-Fri Aug  1 22:00:52 2025
-Global Step: 17500    Loss: 0.853502    MSE_Loss: 1.668819    Learning Rate: 0.000100
-Fri Aug  1 22:02:35 2025
-Global Step: 18000    Loss: 0.810904    MSE_Loss: 1.482864    Learning Rate: 0.000100
-Fri Aug  1 22:04:18 2025
-Global Step: 18500    Loss: 0.871822    MSE_Loss: 1.819199    Learning Rate: 0.000100
-Fri Aug  1 22:06:00 2025
-Global Step: 19000    Loss: 0.831777    MSE_Loss: 1.666041    Learning Rate: 0.000100
-Fri Aug  1 22:07:43 2025
-Global Step: 19500    Loss: 0.787489    MSE_Loss: 1.432595    Learning Rate: 0.000100
-Fri Aug  1 22:09:26 2025
-Global Step: 20000    Loss: 0.790857    MSE_Loss: 1.390340    Learning Rate: 0.000100
+Global Step: 500    Loss: 1.256234    MSE_Loss: 1.603490    Learning Rate: 0.000001
+Global Step: 1000    Loss: 0.807096    MSE_Loss: 0.667015    Learning Rate: 0.000010
+Global Step: 1500    Loss: 0.701546    MSE_Loss: 0.509819    Learning Rate: 0.000001
+Global Step: 2000    Loss: 0.674273    MSE_Loss: 0.470838    Learning Rate: 0.000010
+Global Step: 2500    Loss: 0.654871    MSE_Loss: 0.448807    Learning Rate: 0.000001
+Global Step: 3000    Loss: 0.634034    MSE_Loss: 0.421076    Learning Rate: 0.000010
+Global Step: 3500    Loss: 0.630751    MSE_Loss: 0.419373    Learning Rate: 0.000001
+Global Step: 4000    Loss: 0.623142    MSE_Loss: 0.408593    Learning Rate: 0.000010
+Global Step: 4500    Loss: 0.620332    MSE_Loss: 0.404468    Learning Rate: 0.000001
+Global Step: 5000    Loss: 0.612910    MSE_Loss: 0.392974    Learning Rate: 0.000010
+Global Step: 5500    Loss: 0.610377    MSE_Loss: 0.389581    Learning Rate: 0.000001
+Global Step: 6000    Loss: 0.607285    MSE_Loss: 0.384741    Learning Rate: 0.000010
+Global Step: 6500    Loss: 0.605499    MSE_Loss: 0.382198    Learning Rate: 0.000001
+Global Step: 7000    Loss: 0.600245    MSE_Loss: 0.374632    Learning Rate: 0.000010
+Global Step: 7500    Loss: 0.598534    MSE_Loss: 0.371917    Learning Rate: 0.000001
+Global Step: 8000    Loss: 0.597673    MSE_Loss: 0.371228    Learning Rate: 0.000010
+Global Step: 8500    Loss: 0.596966    MSE_Loss: 0.371126    Learning Rate: 0.000001
+Global Step: 9000    Loss: 0.594893    MSE_Loss: 0.367830    Learning Rate: 0.000010
+Global Step: 9500    Loss: 0.595190    MSE_Loss: 0.369033    Learning Rate: 0.000001
+Global Step: 10000    Loss: 0.597035    MSE_Loss: 0.373823    Learning Rate: 0.000010
+Global Step: 10500    Loss: 0.597825    MSE_Loss: 0.374834    Learning Rate: 0.000001
+Global Step: 11000    Loss: 0.596933    MSE_Loss: 0.374686    Learning Rate: 0.000010
+Global Step: 11500    Loss: 0.596132    MSE_Loss: 0.374650    Learning Rate: 0.000001
+Global Step: 12000    Loss: 0.596061    MSE_Loss: 0.374713    Learning Rate: 0.000010
+Global Step: 12500    Loss: 0.591228    MSE_Loss: 0.368909    Learning Rate: 0.000001
+Global Step: 13000    Loss: 0.586698    MSE_Loss: 0.364974    Learning Rate: 0.000010
+Global Step: 13500    Loss: 0.586355    MSE_Loss: 0.366157    Learning Rate: 0.000001
+Global Step: 14000    Loss: 0.582668    MSE_Loss: 0.362440    Learning Rate: 0.000010
+Global Step: 14500    Loss: 0.584115    MSE_Loss: 0.367082    Learning Rate: 0.000001
+Global Step: 15000    Loss: 0.580242    MSE_Loss: 0.362405    Learning Rate: 0.000010
+Global Step: 15500    Loss: 0.576931    MSE_Loss: 0.359675    Learning Rate: 0.000001
+Global Step: 16000    Loss: 0.570228    MSE_Loss: 0.349645    Learning Rate: 0.000010
+Global Step: 16500    Loss: 0.564839    MSE_Loss: 0.342942    Learning Rate: 0.000001
+Global Step: 17000    Loss: 0.562680    MSE_Loss: 0.340703    Learning Rate: 0.000010
+Global Step: 17500    Loss: 0.561672    MSE_Loss: 0.340728    Learning Rate: 0.000001
+Global Step: 18000    Loss: 0.563351    MSE_Loss: 0.342359    Learning Rate: 0.000010
+Global Step: 18500    Loss: 0.564234    MSE_Loss: 0.347020    Learning Rate: 0.000001
+Global Step: 19000    Loss: 0.564925    MSE_Loss: 0.347711    Learning Rate: 0.000010
+Global Step: 19500    Loss: 0.564429    MSE_Loss: 0.349655    Learning Rate: 0.000001
+Global Step: 20000    Loss: 0.566645    MSE_Loss: 0.354679    Learning Rate: 0.000010
+Global Step: 20500    Loss: 0.561584    MSE_Loss: 0.348831    Learning Rate: 0.000001
+Global Step: 21000    Loss: 0.562031    MSE_Loss: 0.350807    Learning Rate: 0.000010
+Global Step: 21500    Loss: 0.566919    MSE_Loss: 0.361849    Learning Rate: 0.000001
+Global Step: 22000    Loss: 0.559826    MSE_Loss: 0.349509    Learning Rate: 0.000010
+Global Step: 22500    Loss: 0.561380    MSE_Loss: 0.354565    Learning Rate: 0.000001
+Global Step: 23000    Loss: 0.562533    MSE_Loss: 0.357390    Learning Rate: 0.000010
+Global Step: 23500    Loss: 0.555274    MSE_Loss: 0.345634    Learning Rate: 0.000001
+Global Step: 24000    Loss: 0.554386    MSE_Loss: 0.345995    Learning Rate: 0.000010
+Global Step: 24500    Loss: 0.554907    MSE_Loss: 0.350587    Learning Rate: 0.000001
+Global Step: 25000    Loss: 0.552900    MSE_Loss: 0.346723    Learning Rate: 0.000010
+Global Step: 25500    Loss: 0.553072    MSE_Loss: 0.345441    Learning Rate: 0.000001
+Global Step: 26000    Loss: 0.555223    MSE_Loss: 0.348795    Learning Rate: 0.000010
+Global Step: 26500    Loss: 0.559122    MSE_Loss: 0.360228    Learning Rate: 0.000001
+Global Step: 27000    Loss: 0.558180    MSE_Loss: 0.361929    Learning Rate: 0.000010
+Global Step: 27500    Loss: 0.551082    MSE_Loss: 0.348724    Learning Rate: 0.000001
+Global Step: 28000    Loss: 0.548270    MSE_Loss: 0.343866    Learning Rate: 0.000010
+Global Step: 28500    Loss: 0.554979    MSE_Loss: 0.360161    Learning Rate: 0.000001
+Global Step: 29000    Loss: 0.555611    MSE_Loss: 0.364404    Learning Rate: 0.000010
+Global Step: 29500    Loss: 0.553576    MSE_Loss: 0.359494    Learning Rate: 0.000001
+Global Step: 30000    Loss: 0.551573    MSE_Loss: 0.359400    Learning Rate: 0.000010
+Global Step: 30500    Loss: 0.551930    MSE_Loss: 0.357170    Learning Rate: 0.000001
+Global Step: 31000    Loss: 0.541826    MSE_Loss: 0.339867    Learning Rate: 0.000010
+Global Step: 31500    Loss: 0.543868    MSE_Loss: 0.345573    Learning Rate: 0.000001
+Global Step: 32000    Loss: 0.544819    MSE_Loss: 0.345651    Learning Rate: 0.000010
+Global Step: 32500    Loss: 0.542820    MSE_Loss: 0.341479    Learning Rate: 0.000001
+Global Step: 33000    Loss: 0.545053    MSE_Loss: 0.349419    Learning Rate: 0.000010
+Global Step: 33500    Loss: 0.549081    MSE_Loss: 0.361168    Learning Rate: 0.000001
+Global Step: 34000    Loss: 0.543791    MSE_Loss: 0.348082    Learning Rate: 0.000010
+Global Step: 34500    Loss: 0.547385    MSE_Loss: 0.355754    Learning Rate: 0.000001
+Global Step: 35000    Loss: 0.556026    MSE_Loss: 0.372344    Learning Rate: 0.000010
+Global Step: 35500    Loss: 0.547658    MSE_Loss: 0.351590    Learning Rate: 0.000001
+Global Step: 36000    Loss: 0.549698    MSE_Loss: 0.363721    Learning Rate: 0.000010
+Global Step: 36500    Loss: 0.548868    MSE_Loss: 0.367871    Learning Rate: 0.000001
+Global Step: 37000    Loss: 0.544205    MSE_Loss: 0.355854    Learning Rate: 0.000010
+Global Step: 37500    Loss: 0.546155    MSE_Loss: 0.361475    Learning Rate: 0.000001
+Global Step: 38000    Loss: 0.551604    MSE_Loss: 0.372377    Learning Rate: 0.000010
+Global Step: 38500    Loss: 0.547311    MSE_Loss: 0.361711    Learning Rate: 0.000001
+Global Step: 39000    Loss: 0.545733    MSE_Loss: 0.359695    Learning Rate: 0.000010
+Global Step: 39500    Loss: 0.544209    MSE_Loss: 0.359353    Learning Rate: 0.000001
+Global Step: 40000    Loss: 0.540548    MSE_Loss: 0.349904    Learning Rate: 0.000010
+Global Step: 40500    Loss: 0.543698    MSE_Loss: 0.360196    Learning Rate: 0.000001
+Global Step: 41000    Loss: 0.539842    MSE_Loss: 0.350862    Learning Rate: 0.000010
+Global Step: 41500    Loss: 0.540017    MSE_Loss: 0.353703    Learning Rate: 0.000001
+Global Step: 42000    Loss: 0.541716    MSE_Loss: 0.357623    Learning Rate: 0.000010
+Global Step: 42500    Loss: 0.538923    MSE_Loss: 0.351230    Learning Rate: 0.000001
+Global Step: 43000    Loss: 0.542481    MSE_Loss: 0.360506    Learning Rate: 0.000010
+Global Step: 43500    Loss: 0.544535    MSE_Loss: 0.365469    Learning Rate: 0.000001
+Global Step: 44000    Loss: 0.538792    MSE_Loss: 0.351415    Learning Rate: 0.000010
+Global Step: 44500    Loss: 0.536165    MSE_Loss: 0.350802    Learning Rate: 0.000001
+Global Step: 45000    Loss: 0.537900    MSE_Loss: 0.355203    Learning Rate: 0.000010
+Global Step: 45500    Loss: 0.538904    MSE_Loss: 0.354882    Learning Rate: 0.000001
+Global Step: 46000    Loss: 0.534629    MSE_Loss: 0.346171    Learning Rate: 0.000010
+Global Step: 46500    Loss: 0.538495    MSE_Loss: 0.358331    Learning Rate: 0.000001
+Global Step: 47000    Loss: 0.535069    MSE_Loss: 0.348981    Learning Rate: 0.000010
+Global Step: 47500    Loss: 0.533980    MSE_Loss: 0.346590    Learning Rate: 0.000001
+Global Step: 48000    Loss: 0.536067    MSE_Loss: 0.355943    Learning Rate: 0.000010
+Global Step: 48500    Loss: 0.539712    MSE_Loss: 0.360306    Learning Rate: 0.000001
+Global Step: 49000    Loss: 0.530476    MSE_Loss: 0.339072    Learning Rate: 0.000010
+Global Step: 49500    Loss: 0.532539    MSE_Loss: 0.348293    Learning Rate: 0.000001
+Global Step: 50000    Loss: 0.540386    MSE_Loss: 0.370837    Learning Rate: 0.000010
+Global Step: 50500    Loss: 0.538079    MSE_Loss: 0.361070    Learning Rate: 0.000001
+Global Step: 51000    Loss: 0.537091    MSE_Loss: 0.355979    Learning Rate: 0.000010
+Global Step: 51500    Loss: 0.541492    MSE_Loss: 0.368605    Learning Rate: 0.000001
+Global Step: 52000    Loss: 0.536645    MSE_Loss: 0.354905    Learning Rate: 0.000010
+Global Step: 52500    Loss: 0.533760    MSE_Loss: 0.347786    Learning Rate: 0.000001
+Global Step: 53000    Loss: 0.536807    MSE_Loss: 0.356923    Learning Rate: 0.000010
+Global Step: 53500    Loss: 0.539118    MSE_Loss: 0.364543    Learning Rate: 0.000001
+Global Step: 54000    Loss: 0.530491    MSE_Loss: 0.348584    Learning Rate: 0.000010
+Global Step: 54500    Loss: 0.534043    MSE_Loss: 0.360179    Learning Rate: 0.000001
+Global Step: 55000    Loss: 0.531503    MSE_Loss: 0.351728    Learning Rate: 0.000010
+Global Step: 55500    Loss: 0.532892    MSE_Loss: 0.356293    Learning Rate: 0.000001
+Global Step: 56000    Loss: 0.538046    MSE_Loss: 0.365228    Learning Rate: 0.000010
+Global Step: 56500    Loss: 0.533966    MSE_Loss: 0.355500    Learning Rate: 0.000001
+Global Step: 57000    Loss: 0.529763    MSE_Loss: 0.345955    Learning Rate: 0.000010
+Global Step: 57500    Loss: 0.523438    MSE_Loss: 0.337086    Learning Rate: 0.000001
+Global Step: 58000    Loss: 0.524190    MSE_Loss: 0.338567    Learning Rate: 0.000010
+Global Step: 58500    Loss: 0.520682    MSE_Loss: 0.335621    Learning Rate: 0.000001
+Global Step: 59000    Loss: 0.516196    MSE_Loss: 0.325063    Learning Rate: 0.000010
+Global Step: 59500    Loss: 0.515943    MSE_Loss: 0.325039    Learning Rate: 0.000001
+Global Step: 60000    Loss: 0.519714    MSE_Loss: 0.336320    Learning Rate: 0.000010
+Global Step: 60500    Loss: 0.515535    MSE_Loss: 0.328304    Learning Rate: 0.000001
+Global Step: 61000    Loss: 0.523272    MSE_Loss: 0.341732    Learning Rate: 0.000010
+Global Step: 61500    Loss: 0.519838    MSE_Loss: 0.333895    Learning Rate: 0.000001
+Global Step: 62000    Loss: 0.523821    MSE_Loss: 0.338026    Learning Rate: 0.000010
+Global Step: 62500    Loss: 0.527504    MSE_Loss: 0.352311    Learning Rate: 0.000001
+Global Step: 63000    Loss: 0.523816    MSE_Loss: 0.346804    Learning Rate: 0.000010
+Global Step: 63500    Loss: 0.522857    MSE_Loss: 0.341255    Learning Rate: 0.000001
+Global Step: 64000    Loss: 0.527727    MSE_Loss: 0.351219    Learning Rate: 0.000010
+Global Step: 64500    Loss: 0.531114    MSE_Loss: 0.356936    Learning Rate: 0.000001
+Global Step: 65000    Loss: 0.528905    MSE_Loss: 0.353705    Learning Rate: 0.000010
+Global Step: 65500    Loss: 0.529686    MSE_Loss: 0.358509    Learning Rate: 0.000001
+Global Step: 66000    Loss: 0.531916    MSE_Loss: 0.365098    Learning Rate: 0.000010
+Global Step: 66500    Loss: 0.536609    MSE_Loss: 0.371697    Learning Rate: 0.000001
+Global Step: 67000    Loss: 0.529300    MSE_Loss: 0.358923    Learning Rate: 0.000010
+Global Step: 67500    Loss: 0.532902    MSE_Loss: 0.367607    Learning Rate: 0.000001
+Global Step: 68000    Loss: 0.524284    MSE_Loss: 0.346962    Learning Rate: 0.000010
+Global Step: 68500    Loss: 0.520964    MSE_Loss: 0.340438    Learning Rate: 0.000001
+Global Step: 69000    Loss: 0.522273    MSE_Loss: 0.344309    Learning Rate: 0.000010
+Global Step: 69500    Loss: 0.516918    MSE_Loss: 0.335169    Learning Rate: 0.000001
+Global Step: 70000    Loss: 0.523460    MSE_Loss: 0.352938    Learning Rate: 0.000010
+Global Step: 70500    Loss: 0.522533    MSE_Loss: 0.346384    Learning Rate: 0.000001
+Global Step: 71000    Loss: 0.520475    MSE_Loss: 0.343509    Learning Rate: 0.000010
+Global Step: 71500    Loss: 0.522392    MSE_Loss: 0.347053    Learning Rate: 0.000001
+Global Step: 72000    Loss: 0.519777    MSE_Loss: 0.338018    Learning Rate: 0.000010
+Global Step: 72500    Loss: 0.527990    MSE_Loss: 0.360702    Learning Rate: 0.000001
+Global Step: 73000    Loss: 0.521577    MSE_Loss: 0.344943    Learning Rate: 0.000010
+Global Step: 73500    Loss: 0.520213    MSE_Loss: 0.346477    Learning Rate: 0.000001
+Global Step: 74000    Loss: 0.523327    MSE_Loss: 0.356472    Learning Rate: 0.000010
+Global Step: 74500    Loss: 0.517174    MSE_Loss: 0.341415    Learning Rate: 0.000001
+Global Step: 75000    Loss: 0.523545    MSE_Loss: 0.352272    Learning Rate: 0.000010
+Global Step: 75500    Loss: 0.525466    MSE_Loss: 0.362510    Learning Rate: 0.000001
+Global Step: 76000    Loss: 0.523370    MSE_Loss: 0.353413    Learning Rate: 0.000010
+Global Step: 76500    Loss: 0.527089    MSE_Loss: 0.360326    Learning Rate: 0.000001
+Global Step: 77000    Loss: 0.523540    MSE_Loss: 0.359794    Learning Rate: 0.000010
+Global Step: 77500    Loss: 0.525490    MSE_Loss: 0.361773    Learning Rate: 0.000001
+Global Step: 78000    Loss: 0.521729    MSE_Loss: 0.351668    Learning Rate: 0.000010
+Global Step: 78500    Loss: 0.511832    MSE_Loss: 0.331957    Learning Rate: 0.000001
+Global Step: 79000    Loss: 0.514176    MSE_Loss: 0.338708    Learning Rate: 0.000010
+Global Step: 79500    Loss: 0.514253    MSE_Loss: 0.337786    Learning Rate: 0.000001
+Global Step: 80000    Loss: 0.510713    MSE_Loss: 0.327953    Learning Rate: 0.000010
+Global Step: 80500    Loss: 0.513284    MSE_Loss: 0.332488    Learning Rate: 0.000001
+Global Step: 81000    Loss: 0.512388    MSE_Loss: 0.340932    Learning Rate: 0.000010
+Global Step: 81500    Loss: 0.508059    MSE_Loss: 0.332125    Learning Rate: 0.000001
+Global Step: 82000    Loss: 0.514428    MSE_Loss: 0.339397    Learning Rate: 0.000010
+Global Step: 82500    Loss: 0.512862    MSE_Loss: 0.334076    Learning Rate: 0.000001
+Global Step: 83000    Loss: 0.517455    MSE_Loss: 0.345219    Learning Rate: 0.000010
+Global Step: 83500    Loss: 0.513908    MSE_Loss: 0.337921    Learning Rate: 0.000001
+Global Step: 84000    Loss: 0.512132    MSE_Loss: 0.332250    Learning Rate: 0.000010
+Global Step: 84500    Loss: 0.512243    MSE_Loss: 0.335269    Learning Rate: 0.000001
+Global Step: 85000    Loss: 0.512666    MSE_Loss: 0.335216    Learning Rate: 0.000010
+Global Step: 85500    Loss: 0.515819    MSE_Loss: 0.349371    Learning Rate: 0.000001
+Global Step: 86000    Loss: 0.513206    MSE_Loss: 0.338964    Learning Rate: 0.000010
+Global Step: 86500    Loss: 0.513186    MSE_Loss: 0.338557    Learning Rate: 0.000001
+Global Step: 87000    Loss: 0.516676    MSE_Loss: 0.347747    Learning Rate: 0.000010
+Global Step: 87500    Loss: 0.514218    MSE_Loss: 0.340106    Learning Rate: 0.000001
+Global Step: 88000    Loss: 0.510388    MSE_Loss: 0.330005    Learning Rate: 0.000010
+Global Step: 88500    Loss: 0.516624    MSE_Loss: 0.347607    Learning Rate: 0.000001
+Global Step: 89000    Loss: 0.516582    MSE_Loss: 0.347342    Learning Rate: 0.000010
+Global Step: 89500    Loss: 0.511312    MSE_Loss: 0.337095    Learning Rate: 0.000001
+Global Step: 90000    Loss: 0.509770    MSE_Loss: 0.333240    Learning Rate: 0.000010
+Global Step: 90500    Loss: 0.509705    MSE_Loss: 0.335242    Learning Rate: 0.000001
+Global Step: 91000    Loss: 0.511088    MSE_Loss: 0.337638    Learning Rate: 0.000010
+Global Step: 91500    Loss: 0.501633    MSE_Loss: 0.315915    Learning Rate: 0.000001
+Global Step: 92000    Loss: 0.505642    MSE_Loss: 0.327162    Learning Rate: 0.000010
+Global Step: 92500    Loss: 0.507054    MSE_Loss: 0.335208    Learning Rate: 0.000001
+Global Step: 93000    Loss: 0.505232    MSE_Loss: 0.330256    Learning Rate: 0.000010
+Global Step: 93500    Loss: 0.511180    MSE_Loss: 0.341707    Learning Rate: 0.000001
+Global Step: 94000    Loss: 0.508724    MSE_Loss: 0.338994    Learning Rate: 0.000010
+Global Step: 94500    Loss: 0.508115    MSE_Loss: 0.337896    Learning Rate: 0.000001
+Global Step: 95000    Loss: 0.498759    MSE_Loss: 0.316611    Learning Rate: 0.000010
+Global Step: 95500    Loss: 0.498635    MSE_Loss: 0.314851    Learning Rate: 0.000001
+Global Step: 96000    Loss: 0.503443    MSE_Loss: 0.324784    Learning Rate: 0.000010
+Global Step: 96500    Loss: 0.504504    MSE_Loss: 0.318962    Learning Rate: 0.000001
+Global Step: 97000    Loss: 0.502564    MSE_Loss: 0.318249    Learning Rate: 0.000010
+Global Step: 97500    Loss: 0.509709    MSE_Loss: 0.339978    Learning Rate: 0.000001
+Global Step: 98000    Loss: 0.505474    MSE_Loss: 0.335206    Learning Rate: 0.000010
+Global Step: 98500    Loss: 0.504825    MSE_Loss: 0.326222    Learning Rate: 0.000001
+Global Step: 99000    Loss: 0.506574    MSE_Loss: 0.332064    Learning Rate: 0.000010
+Global Step: 99500    Loss: 0.508805    MSE_Loss: 0.333619    Learning Rate: 0.000001
+Global Step: 100000    Loss: 0.499769    MSE_Loss: 0.313227    Learning Rate: 0.000010
+Global Step: 100500    Loss: 0.502736    MSE_Loss: 0.326056    Learning Rate: 0.000001
+Global Step: 101000    Loss: 0.496357    MSE_Loss: 0.315861    Learning Rate: 0.000010
+Global Step: 101500    Loss: 0.493616    MSE_Loss: 0.305587    Learning Rate: 0.000001
+Global Step: 102000    Loss: 0.498162    MSE_Loss: 0.312981    Learning Rate: 0.000010
+Global Step: 102500    Loss: 0.497856    MSE_Loss: 0.314349    Learning Rate: 0.000001
+Global Step: 103000    Loss: 0.497054    MSE_Loss: 0.316245    Learning Rate: 0.000010
+Global Step: 103500    Loss: 0.495823    MSE_Loss: 0.309330    Learning Rate: 0.000001
+Global Step: 104000    Loss: 0.501605    MSE_Loss: 0.321650    Learning Rate: 0.000010
+Global Step: 104500    Loss: 0.505027    MSE_Loss: 0.332046    Learning Rate: 0.000001
+Global Step: 105000    Loss: 0.503146    MSE_Loss: 0.329364    Learning Rate: 0.000010
+Global Step: 105500    Loss: 0.498640    MSE_Loss: 0.315365    Learning Rate: 0.000001
+Global Step: 106000    Loss: 0.506147    MSE_Loss: 0.331344    Learning Rate: 0.000010
+Global Step: 106500    Loss: 0.501921    MSE_Loss: 0.324895    Learning Rate: 0.000001
+Global Step: 107000    Loss: 0.503218    MSE_Loss: 0.325793    Learning Rate: 0.000010
+Global Step: 107500    Loss: 0.498605    MSE_Loss: 0.316858    Learning Rate: 0.000001
+Global Step: 108000    Loss: 0.501763    MSE_Loss: 0.330862    Learning Rate: 0.000010
+Global Step: 108500    Loss: 0.498157    MSE_Loss: 0.328069    Learning Rate: 0.000001
+Global Step: 109000    Loss: 0.495362    MSE_Loss: 0.316814    Learning Rate: 0.000010
+Global Step: 109500    Loss: 0.496510    MSE_Loss: 0.317101    Learning Rate: 0.000001
+Global Step: 110000    Loss: 0.503522    MSE_Loss: 0.329956    Learning Rate: 0.000010
+Global Step: 110500    Loss: 0.496916    MSE_Loss: 0.309502    Learning Rate: 0.000001
+Global Step: 111000    Loss: 0.504935    MSE_Loss: 0.328977    Learning Rate: 0.000010
+Global Step: 111500    Loss: 0.506359    MSE_Loss: 0.334356    Learning Rate: 0.000001
+Global Step: 112000    Loss: 0.504016    MSE_Loss: 0.330351    Learning Rate: 0.000010
+Global Step: 112500    Loss: 0.499048    MSE_Loss: 0.320903    Learning Rate: 0.000001
+Global Step: 113000    Loss: 0.496085    MSE_Loss: 0.310525    Learning Rate: 0.000010
+Global Step: 113500    Loss: 0.494739    MSE_Loss: 0.315176    Learning Rate: 0.000001
+Global Step: 114000    Loss: 0.487999    MSE_Loss: 0.307852    Learning Rate: 0.000010
+Global Step: 114500    Loss: 0.488279    MSE_Loss: 0.300556    Learning Rate: 0.000001
+Global Step: 115000    Loss: 0.486033    MSE_Loss: 0.297529    Learning Rate: 0.000010
+Global Step: 115500    Loss: 0.490823    MSE_Loss: 0.308062    Learning Rate: 0.000001
+Global Step: 116000    Loss: 0.490240    MSE_Loss: 0.303435    Learning Rate: 0.000010
+Global Step: 116500    Loss: 0.493316    MSE_Loss: 0.307626    Learning Rate: 0.000001
+Global Step: 117000    Loss: 0.496720    MSE_Loss: 0.316597    Learning Rate: 0.000010
+Global Step: 117500    Loss: 0.494035    MSE_Loss: 0.313473    Learning Rate: 0.000001
+Global Step: 118000    Loss: 0.493071    MSE_Loss: 0.315190    Learning Rate: 0.000010
+Global Step: 118500    Loss: 0.490087    MSE_Loss: 0.306011    Learning Rate: 0.000001
+Global Step: 119000    Loss: 0.493848    MSE_Loss: 0.314211    Learning Rate: 0.000010
+Global Step: 119500    Loss: 0.491454    MSE_Loss: 0.306227    Learning Rate: 0.000001
+Global Step: 120000    Loss: 0.495100    MSE_Loss: 0.313972    Learning Rate: 0.000010
+Global Step: 120500    Loss: 0.498249    MSE_Loss: 0.318851    Learning Rate: 0.000001
+Global Step: 121000    Loss: 0.499550    MSE_Loss: 0.326145    Learning Rate: 0.000010
+Global Step: 121500    Loss: 0.497842    MSE_Loss: 0.323149    Learning Rate: 0.000001
+Global Step: 122000    Loss: 0.497971    MSE_Loss: 0.326781    Learning Rate: 0.000010
+Global Step: 122500    Loss: 0.496201    MSE_Loss: 0.321316    Learning Rate: 0.000001
+Global Step: 123000    Loss: 0.495529    MSE_Loss: 0.316173    Learning Rate: 0.000010
+Global Step: 123500    Loss: 0.493045    MSE_Loss: 0.311913    Learning Rate: 0.000001
+Global Step: 124000    Loss: 0.494693    MSE_Loss: 0.312950    Learning Rate: 0.000010
+Global Step: 124500    Loss: 0.490358    MSE_Loss: 0.305311    Learning Rate: 0.000001
+Global Step: 125000    Loss: 0.497589    MSE_Loss: 0.324035    Learning Rate: 0.000010
+Global Step: 125500    Loss: 0.494858    MSE_Loss: 0.318327    Learning Rate: 0.000001
+Global Step: 126000    Loss: 0.497626    MSE_Loss: 0.326723    Learning Rate: 0.000010
+Global Step: 126500    Loss: 0.500211    MSE_Loss: 0.333927    Learning Rate: 0.000001
+Global Step: 127000    Loss: 0.504439    MSE_Loss: 0.339977    Learning Rate: 0.000010

@@ -4,7 +4,7 @@
 import torch
 
 class NoiseGenerator:
-    def __init__(self, eta=0.56, sp_amount=0.1, block_size=10):
+    def __init__(self, eta=0.7, sp_amount=0.1, block_size=10):
         super().__init__()
         self.eta = eta
         self.sp_amount = sp_amount

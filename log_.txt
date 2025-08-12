@@ -1,0 +1,13 @@
+
+Global Step: 500    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000001
+Global Step: 1000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000010
+Global Step: 1500    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000001
+Global Step: 2000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000010
+Global Step: 500    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000001
+Global Step: 1000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000010
+Global Step: 1500    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000001
+Global Step: 2000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000010
+Global Step: 500    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000001
+Global Step: 1000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000010
+Global Step: 1500    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000001
+Global Step: 2000    Loss: nan    MSE_Loss: nan    Learning Rate: 0.000010

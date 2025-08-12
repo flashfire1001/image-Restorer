@@ -149,7 +149,7 @@ class MFDiT(nn.Module):
         num_heads=16,
         mlp_ratio=4.0,
         num_register_tokens=4,
-        num_classes=1000,
+        num_classes=10,
     ):
         super().__init__()
         self.in_channels = in_channels
@@ -165,6 +165,8 @@ class MFDiT(nn.Module):
 
         # set y_embedder for cfg task
         self.use_cond = num_classes is not None
+        #don't use cfg self.use_cond = False
+        
         self.y_embedder = LabelEmbedder(num_classes, dim) if self.use_cond else None
         
         # D = H*W/P**2

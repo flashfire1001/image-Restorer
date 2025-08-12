@@ -1,0 +1,32 @@
+UNet:
+batch_size 128
+lr = 1e-5
+model = MFUNet(in_channels= 1,
+                   channels= [64, 128, 256],
+                   num_residual_layers= 2,
+                   t_embed_dim= 64,
+                   y_embed_dim= 64,
+                   num_classes= 10).to(accelerator.device)
+    
+DiT:
+batch_size 64
+lr = 1e-4
+model = MFDiT(
+        input_size=32,
+        patch_size=2,
+        in_channels=1,
+        dim=144,
+        depth=6,
+        num_heads=3,
+        num_classes=10,
+    ).to(accelerator.device)
+
+meanflow = MeanFlow(channels=1,
+                        image_size=32,
+                        num_classes=10,
+                        flow_ratio=0.50,
+                        time_dist=['lognorm', -0.4, 1.0],
+                        cfg_ratio=0.10,
+                        cfg_scale=2.0,
+                        # experimental
+                        cfg_uncond='u')

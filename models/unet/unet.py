@@ -5,6 +5,30 @@ from .fourier_encoder import FourierEncoder
 from .modules import Encoder, Midcoder, Decoder
 from typing import List
 
+def initialize_weights(module):
+    if isinstance(module, nn.Conv2d):
+        # For SiLU (ReLU-like), fan_in mode is recommended
+        nn.init.kaiming_normal_(module.weight, mode='fan_in', nonlinearity='relu')
+        if module.bias is not None:
+            nn.init.zeros_(module.bias)
+
+    elif isinstance(module, nn.Linear):
+        # Linear layers benefit from fan_out mode
+        nn.init.kaiming_normal_(module.weight, mode='fan_out', nonlinearity='relu')
+        if module.bias is not None:
+            nn.init.zeros_(module.bias)
+
+    elif isinstance(module, (nn.BatchNorm2d, nn.GroupNorm)):
+        # Initialize normalization scale to 1 and bias to 0
+        if module.weight is not None:
+            nn.init.ones_(module.weight)
+        if module.bias is not None:
+            nn.init.zeros_(module.bias)
+
+    elif isinstance(module, nn.Embedding):
+        # Embeddings initialized to small normal noise
+        nn.init.normal_(module.weight, mean=0.0, std=0.02)
+
 
 class MFUNet(nn.Module):
     def __init__(self, in_channels, channels: List[int], num_residual_layers: int, t_embed_dim: int, y_embed_dim: int, num_classes: int):
@@ -28,6 +52,7 @@ class MFUNet(nn.Module):
         self.midcoder = Midcoder(channels[-1], num_residual_layers, t_embed_dim, y_embed_dim)
 
         self.final_conv = nn.Conv2d(channels[0],in_channels, kernel_size=3, padding=1)
+        self.apply(initialize_weights)
 
 
     def forward(self, x: torch.Tensor, t: torch.Tensor, r: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
@@ -63,3 +88,4 @@ class MFUNet(nn.Module):
         x = self.final_conv(x)
 
         return x
+    

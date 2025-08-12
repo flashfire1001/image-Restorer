@@ -7,15 +7,16 @@ class ResidualLayer(nn.Module):
     def __init__(self, channels: int, time_embed_dim: int, y_embed_dim: int):
         super().__init__()
         self.block1 = nn.Sequential(
-            nn.SiLU(),
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1),
             nn.BatchNorm2d(channels),
-            nn.Conv2d(channels, channels, kernel_size=3, padding=1)
+            nn.SiLU()
         )
         self.block2 = nn.Sequential(
-            nn.SiLU(),
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1),
             nn.BatchNorm2d(channels),
-            nn.Conv2d(channels, channels, kernel_size=3, padding=1)
+            nn.SiLU()
         )
+
         # Converts (bs, time_embed_dim) -> (bs, channels)
         self.t_adapter = nn.Sequential(
             nn.Linear(time_embed_dim, time_embed_dim),

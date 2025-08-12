@@ -110,7 +110,7 @@ class MeanFlow:
         r_ = rearrange(r, "b -> b 1 1 1").detach().clone()
 
         x = self.normer.norm(x)
-        #e = torch.randn_like(x) # simple function for generating epsilon.
+        #e = torch.randn_like(x) # simple function for generating epsilon in denoise generation task.
         e = self.noise_generator.sample(x)
         
 
@@ -165,7 +165,7 @@ class MeanFlow:
 
     @torch.no_grad()
     def sample_each_class(self, model, n_per_class, classes=None,
-                          sample_steps=5, device='cuda', ):
+                          sample_steps= 4, device='cuda', ):
         model.eval()
 
         if classes is None:
@@ -192,7 +192,7 @@ class MeanFlow:
             t_ = rearrange(t, "b -> b 1 1 1").detach().clone()
             r_ = rearrange(r, "b -> b 1 1 1").detach().clone()
 
-            uncond = torch.ones_like(c) * self.num_classes
+            uncond = torch.ones_like(c) * self.num_classes # generate with/without classinfo
             v = model(z , t,  r, uncond)
             z = z - (t_-r_) * v # z is the raw image tensor.
             
